@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Internal
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -6,10 +7,24 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>masthead</div>
+<div class="masthead">
+    <div class="container">
+        masthead
+    </div>
+</div>
 <div>
     @RenderBody()
 </div>
-<div>page foot</div>
+<div class="page-foot">
+    <div class="container">
+        <span>&copy; @DateTime.UtcNow.Year</span>
+        <ul>
+            <li>@Html.RouteLink("Terms", "Home_Terms")</li>
+            <li>@Html.RouteLink("Privacy", "Home_Privacy")</li>
+            <li>@Html.RouteLink("Legal", "Home_Legal")</li>
+        </ul>
+        <span>Site by <a href="http://www.lowelogic.com" target="lowelogic">LOWElogic</a>.com</span>
+    </div>
+</div>
 </body>
 </html>
